@@ -1,3 +1,12 @@
+<?php
+session_start();
+// if the user is not logged in, then redirect to the login page
+if(!isset($_SESSION["user_id"])){
+    header("location:login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +19,11 @@
 </head>
 
 <body>
+<h2>
+    <a href="logout.php">
+        <button class="btn btn-warning">Logout</button>
+    </a>
+</h2>
 <!-- Add New User Modal Start -->
 <div class="modal fade" tabindex="-1" id="addNewUserModal">
     <div class="modal-dialog modal-dialog-centered">
