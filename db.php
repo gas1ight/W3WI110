@@ -3,8 +3,9 @@
 require_once 'config.php';
 
 class Database extends Config {
+
     // Insert User Into Database
-    public function insert($fname, $lname, $email, $phone) {
+    public function insertNewUser ($fname, $lname, $email, $phone): bool {
         $sql = 'INSERT INTO users (first_name, last_name, email, phone) VALUES (:fname, :lname, :email, :phone)';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
@@ -16,9 +17,21 @@ class Database extends Config {
         return true;
     }
 
+    public function insertNewCar ($license, $brand, $model, $milage): bool {
+        $sql = 'INSERT INTO cars (license, brand, model, milage) VALUES (:license, :brand, :model, :milage)';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'license' => $license,
+            'brand' => $brand,
+            'model' => $model,
+            'milage' => $milage
+        ]);
+        return true;
+    }
+
     // Fetch All Users From Database
-    public function read() {
-        $sql = 'SELECT * FROM users ORDER BY id DESC';
+    public function read($table) {
+        $sql = 'SELECT * FROM table ORDER BY id DESC';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         $result = $stmt->fetchAll();

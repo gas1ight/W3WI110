@@ -112,7 +112,7 @@ if(!isset($_SESSION["user_id"])){
     <div class="row mt-4">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="text-primary">All users in the database!</h4>
+                <h4 class="text-primary">given cars in the db</h4>
             </div>
             <div>
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Add New User</button>

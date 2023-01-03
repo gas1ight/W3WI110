@@ -10,7 +10,9 @@ if (isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['passwo
 
     $sql = "SELECT * FROM accounts WHERE username='$username'";
     $results = $database->select($sql);
+
     if(is_array($results) && count($results)>0){
+
         $result = $results[0]['password'];
         if($result == $password){
             // Username & password correct

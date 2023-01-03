@@ -13,7 +13,7 @@ if (isset($_POST['add'])) {
     $email = $util->testInput($_POST['email']);
     $phone = $util->testInput($_POST['phone']);
 
-    if ($db->insert($fname, $lname, $email, $phone)) {
+    if ($db->insertNewUser($fname, $lname, $email, $phone)) {
         echo $util->showMessage('success', 'User inserted successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
