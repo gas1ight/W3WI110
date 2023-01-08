@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 30, 2022 at 08:34 PM
+-- Generation Time: Jan 08, 2023 at 09:16 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 7.4.33
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -46,25 +46,26 @@ INSERT INTO `accounts` (`id`, `first_name`, `last_name`, `email`, `username`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Table structure for table `vehicles`
 --
 
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(20) NOT NULL,
+CREATE TABLE `vehicles` (
+  `id` int(10) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  `seats` varchar(10) NOT NULL,
+  `category` varchar(20) NOT NULL,
+  `bookedBy` varchar(20) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `license` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data for table `vehicles`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `phone`, `created_at`, `updated_at`) VALUES
-(1, 'first', 'last', 'mail@gmail.com', '123', '2022-12-22 10:01:04', NULL);
+INSERT INTO `vehicles` (`id`, `model`, `seats`, `category`, `bookedBy`, `created_at`, `updated_at`, `license`) VALUES
+(3, 'Mercedes W123', '5', 'Limousine', NULL, '2023-01-08 20:16:01', NULL, 'SUW AA 123');
 
 --
 -- Indexes for dumped tables
@@ -77,9 +78,9 @@ ALTER TABLE `accounts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indexes for table `vehicles`
 --
-ALTER TABLE `users`
+ALTER TABLE `vehicles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -93,10 +94,10 @@ ALTER TABLE `accounts`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT for table `vehicles`
 --
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `vehicles`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
