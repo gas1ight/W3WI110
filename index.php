@@ -13,7 +13,7 @@ if(!isset($_SESSION["user_id"])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Application Using PHP OOPS PDO MySQL & FETCH API of ES6</title>
+    <title>crud app</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -21,7 +21,7 @@ if(!isset($_SESSION["user_id"])){
 <body>
 <h2>
     <a href="logout.php">
-        <button class="btn btn-warning">Logout</button>
+        <button class="btn btn-warning">logout</button>
     </a>
 </h2>
 <!-- Add New User Modal Start -->
@@ -29,7 +29,7 @@ if(!isset($_SESSION["user_id"])){
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Add New User</h5>
+                <h5 class="modal-title">add new user</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -47,18 +47,24 @@ if(!isset($_SESSION["user_id"])){
                     </div>
 
                     <div class="mb-3">
-                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
-                        <div class="invalid-feedback">E-mail is required!</div>
+                        <input type="text" name="email" class="form-control form-control-lg" placeholder="Enter Email" required>
+                        <div class="invalid-feedback">Email is required!</div>
                     </div>
 
                     <div class="mb-3">
-                        <input type="tel" name="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
-                        <div class="invalid-feedback">Phone is required!</div>
+                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Enter Username" required>
+                        <div class="invalid-feedback">Username is required!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" name="password" class="form-control form-control-lg" placeholder="Enter Password" required>
+                        <div class="invalid-feedback">Password is required!</div>
                     </div>
 
                     <div class="mb-3">
                         <input type="submit" value="Add User" class="btn btn-primary btn-block btn-lg" id="add-user-btn">
                     </div>
+
                 </form>
             </div>
         </div>
@@ -71,7 +77,7 @@ if(!isset($_SESSION["user_id"])){
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit This User</h5>
+                <h5 class="modal-title">edit user</h5>
                 <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -90,17 +96,22 @@ if(!isset($_SESSION["user_id"])){
                     </div>
 
                     <div class="mb-3">
-                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Enter E-mail" required>
-                        <div class="invalid-feedback">E-mail is required!</div>
+                        <input type="text" name="email" id="email" class="form-control form-control-lg" placeholder="Enter Email" required>
+                        <div class="invalid-feedback">Email is required!</div>
                     </div>
 
                     <div class="mb-3">
-                        <input type="tel" name="phone" id="phone" class="form-control form-control-lg" placeholder="Enter Phone" required>
-                        <div class="invalid-feedback">Phone is required!</div>
+                        <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Enter Username" required>
+                        <div class="invalid-feedback">Username is required!</div>
                     </div>
 
                     <div class="mb-3">
-                        <input type="submit" value="Update User" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
+                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Enter Password" required>
+                        <div class="invalid-feedback">Username is required!</div>
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="submit" value="update user" class="btn btn-success btn-block btn-lg" id="edit-user-btn">
                     </div>
                 </form>
             </div>
@@ -112,10 +123,10 @@ if(!isset($_SESSION["user_id"])){
     <div class="row mt-4">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="text-primary">given cars in the db</h4>
+                <h4 class="text-primary">database explorer</h4>
             </div>
             <div>
-                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">Add New User</button>
+                <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">add new user</button>
             </div>
         </div>
     </div>
@@ -134,8 +145,8 @@ if(!isset($_SESSION["user_id"])){
                         <th>ID</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>E-mail</th>
-                        <th>Phone</th>
+                        <th>Mail</th>
+                        <th>Username</th>
                         <th>Action</th>
                     </tr>
                     </thead>

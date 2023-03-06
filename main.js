@@ -59,10 +59,11 @@ const editUser = async (id) => {
     });
     const response = await data.json();
     document.getElementById("id").value = response.id;
-    document.getElementById("fname").value = response.first_name;
-    document.getElementById("lname").value = response.last_name;
+    document.getElementById("fname").value = response.fname;
+    document.getElementById("lname").value = response.lname;
     document.getElementById("email").value = response.email;
-    document.getElementById("phone").value = response.phone;
+    document.getElementById("username").value = response.username;
+    document.getElementById("password").value = response.password;
 };
 
 // Update User Ajax Request
