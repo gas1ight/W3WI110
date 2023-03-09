@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 08, 2023 at 09:16 PM
+-- Generation Time: Mar 10, 2023 at 12:56 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,19 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `username` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `role` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`id`, `first_name`, `last_name`, `email`, `username`, `password`) VALUES
-(1, '', '', '', 'admin', 'admin');
+INSERT INTO `accounts` (`id`, `fname`, `lname`, `email`, `username`, `password`, `role`) VALUES
+(14, 'Sebastian', 'Bernhard', 'my@mail', 'keiger', '123', 'admin'),
+(15, 'Josephine', 'Schumann', 'schu@mann', 'josi', '123', 'basic user');
 
 -- --------------------------------------------------------
 
@@ -55,8 +57,8 @@ CREATE TABLE `vehicles` (
   `seats` varchar(10) NOT NULL,
   `category` varchar(20) NOT NULL,
   `bookedBy` varchar(20) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updatedAt` timestamp NULL DEFAULT NULL,
   `license` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -64,7 +66,7 @@ CREATE TABLE `vehicles` (
 -- Dumping data for table `vehicles`
 --
 
-INSERT INTO `vehicles` (`id`, `model`, `seats`, `category`, `bookedBy`, `created_at`, `updated_at`, `license`) VALUES
+INSERT INTO `vehicles` (`id`, `model`, `seats`, `category`, `bookedBy`, `createdAt`, `updatedAt`, `license`) VALUES
 (3, 'Mercedes W123', '5', 'Limousine', NULL, '2023-01-08 20:16:01', NULL, 'SUW AA 123');
 
 --
@@ -91,7 +93,7 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `vehicles`
