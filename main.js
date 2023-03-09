@@ -74,11 +74,13 @@ updateForm.addEventListener("submit", async (e) => {
     formData.append("update", 1);
 
     if (updateForm.checkValidity() === false) {
+        //in case any form field is not filled out, do not submit
         e.preventDefault();
         e.stopPropagation();
         updateForm.classList.add("was-validated");
         return false;
     } else {
+        //in case all form fields are filled, POST Data to DB
         document.getElementById("edit-user-btn").value = "Please Wait...";
 
         const data = await fetch("action.php", {

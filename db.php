@@ -4,6 +4,14 @@ require_once 'config.php';
 
 class Database extends Config {
 
+    //generic query execution
+    public function select($query) {
+        //$query = mysqli_real_escape_string(trim($query));
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
     // Insert User Into Database
     public function insertNewUser ($fname, $lname, $email, $username, $password): bool {
         $sql = 'INSERT INTO accounts (fname, lname, email, username, password) VALUES (:fname, :lname, :email, :username, :password)';

@@ -1,28 +1,30 @@
 <?php
-require('userbase.php');
+require('db.php');
 
-$database = new Userbase();
+$database = new Database;
 
-if (isset($_POST['submit']) && isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['submit'])
+    && isset($_POST['username']) && isset($_POST['password'])
+    && !empty($_POST['username']) && !empty($_POST['password'])) {
 
-    $username = $database->escape($_POST['username']);
-    $password = $database->escape($_POST['password']);
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-    $sql = "SELECT * FROM accounts WHERE username='$username'";
+    $sql = "SELECT * FROM accounts WHERE username = '$username'";
     $results = $database->select($sql);
 
-    if(is_array($results) && count($results)>0){
+    if(is_array($results)){
 
-        $result = $results[0]['password'];
+        $result = $results['password'];
+
         if($result == $password){
-            // Username & password correct
             session_start();
-            $_SESSION['user_id'] = $results[0]['id'];
+            $_SESSION['user_id'] = $results['id'];
             header('location:index.php');
         }
-        else $ermsg = "password incorrect";
+        else $ermsg = "credentials incorrect";
     }
-    else $ermsg = "user incorrect";
+    else $ermsg = "user not found in DB";
 }
 else $ermsg = "input required";
 
