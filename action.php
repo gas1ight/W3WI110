@@ -13,8 +13,9 @@ if (isset($_POST['add'])) {
     $email = $util->testInput($_POST['email']);
     $username = $util->testInput($_POST['username']);
     $password = $util->testInput($_POST['password']);
+    $role = $util->testInput($_POST['role']);
 
-    if ($db->insertNewUser($fname, $lname, $email, $username, $password)) {
+    if ($db->insertNewUser($fname, $lname, $email, $username, $password, $role)) {
         echo $util->showMessage('success', 'User inserted successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');
@@ -33,6 +34,7 @@ if (isset($_GET['read'])) {
                       <td>' . $row['lname'] . '</td>
                       <td>' . $row['email'] . '</td>
                       <td>' . $row['username'] . '</td>
+                      <td>' . $row['role'] . '</td>
                       <td>
                         <a href="#" id="' . $row['id'] . '" class="btn btn-success btn-sm rounded-pill py-0 editLink" data-toggle="modal" data-target="#editUserModal">Edit</a>
 
@@ -64,8 +66,9 @@ if (isset($_POST['update'])) {
     $email = $util->testInput($_POST['email']);
     $username = $util->testInput($_POST['username']);
     $password = $util->testInput($_POST['password']);
+    $role = $util->testInput($_POST['role']);
 
-    if ($db->update($id, $fname, $lname, $email, $username, $password)) {
+    if ($db->update($id, $fname, $lname, $email, $username, $password, $role)) {
         echo $util->showMessage('success', 'User updated successfully!');
     } else {
         echo $util->showMessage('danger', 'Something went wrong!');

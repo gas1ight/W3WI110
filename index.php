@@ -47,18 +47,25 @@ if(!isset($_SESSION["user_id"])){
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" name="email" class="form-control form-control-lg" placeholder="Enter Email" required>
+                        <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter Email" required>
                         <div class="invalid-feedback">Email is required!</div>
                     </div>
 
-                    <div class="mb-3">
-                        <input type="text" name="username" class="form-control form-control-lg" placeholder="Enter Username" required>
-                        <div class="invalid-feedback">Username is required!</div>
+                    <div class="row mb-3 gx-3">
+                        <div class="col">
+                            <input type="text" name="username" class="form-control form-control-lg" placeholder="Enter Username" required>
+                            <div class="invalid-feedback">Username is required!</div>
+                        </div>
+
+                        <div class="col">
+                            <input type="password" name="password" class="form-control form-control-lg" placeholder="Enter Password" required>
+                            <div class="invalid-feedback">Password is required!</div>
+                        </div>
                     </div>
 
-                    <div class="mb-3">
-                        <input type="text" name="password" class="form-control form-control-lg" placeholder="Enter Password" required>
-                        <div class="invalid-feedback">Password is required!</div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault1">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Admin privileges</label>
                     </div>
 
                     <div class="mb-3">
@@ -96,18 +103,26 @@ if(!isset($_SESSION["user_id"])){
                     </div>
 
                     <div class="mb-3">
-                        <input type="text" name="email" id="email" class="form-control form-control-lg" placeholder="Enter Email" required>
+                        <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Enter Email" required>
                         <div class="invalid-feedback">Email is required!</div>
                     </div>
 
-                    <div class="mb-3">
-                        <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Enter Username" required>
-                        <div class="invalid-feedback">Username is required!</div>
+                    <div class="row mb-3 gx-3">
+                        <div class="col">
+                            <input type="text" name="username" id="username" class="form-control form-control-lg" placeholder="Enter Username" required>
+                            <div class="invalid-feedback">Username is required!</div>
+                        </div>
+
+                        <div class="col">
+                            <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Enter Password" required>
+                            <div class="invalid-feedback">Password is required!</div>
+                        </div>
+
                     </div>
 
-                    <div class="mb-3">
-                        <input type="password" name="password" id="password" class="form-control form-control-lg" placeholder="Enter Password" required>
-                        <div class="invalid-feedback">Username is required!</div>
+                    <div class="form-check form-switch mb-3">
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Admin privileges</label>
                     </div>
 
                     <div class="mb-3">
@@ -123,7 +138,7 @@ if(!isset($_SESSION["user_id"])){
     <div class="row mt-4">
         <div class="col-lg-12 d-flex justify-content-between align-items-center">
             <div>
-                <h4 class="text-primary">database explorer</h4>
+                <h4 class="text-primary">Users in the Database</h4>
             </div>
             <div>
                 <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#addNewUserModal">add new user</button>
@@ -147,6 +162,7 @@ if(!isset($_SESSION["user_id"])){
                         <th>Last Name</th>
                         <th>Mail</th>
                         <th>Username</th>
+                        <th>Role</th>
                         <th>Action</th>
                     </tr>
                     </thead>

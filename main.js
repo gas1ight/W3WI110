@@ -20,6 +20,14 @@ addForm.addEventListener("submit", async (e) => {
     } else {
         document.getElementById("add-user-btn").value = "Please Wait...";
 
+        var checkbox = document.querySelector("input[id=flexSwitchCheckDefault1]");
+
+        if (checkbox["checked"] == true) {
+            formData.append("role", "admin");
+        } else {
+            formData.append("role", "basic user");
+        }
+
         const data = await fetch("action.php", {
             method: "POST",
             body: formData,
@@ -64,6 +72,7 @@ const editUser = async (id) => {
     document.getElementById("email").value = response.email;
     document.getElementById("username").value = response.username;
     document.getElementById("password").value = response.password;
+    document.getElementById("role").value = response.role;
 };
 
 // Update User Ajax Request
@@ -82,6 +91,14 @@ updateForm.addEventListener("submit", async (e) => {
     } else {
         //in case all form fields are filled, POST Data to DB
         document.getElementById("edit-user-btn").value = "Please Wait...";
+
+        var checkbox = document.querySelector("input[id=flexSwitchCheckDefault]");
+
+        if (checkbox["checked"] == true) {
+            formData.append("role", "admin");
+        } else {
+            formData.append("role", "basic user");
+        }
 
         const data = await fetch("action.php", {
             method: "POST",

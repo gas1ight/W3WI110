@@ -13,15 +13,16 @@ class Database extends Config {
     }
 
     // Insert User Into Database
-    public function insertNewUser ($fname, $lname, $email, $username, $password): bool {
-        $sql = 'INSERT INTO accounts (fname, lname, email, username, password) VALUES (:fname, :lname, :email, :username, :password)';
+    public function insertNewUser ($fname, $lname, $email, $username, $password, $role): bool {
+        $sql = 'INSERT INTO accounts (fname, lname, email, username, password, role) VALUES (:fname, :lname, :email, :username, :password, :role)';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'fname' => $fname,
             'lname' => $lname,
             'email' => $email,
             'username' => $username,
-            'password' => $password
+            'password' => $password,
+            'role' => $role
         ]);
         return true;
     }
@@ -45,8 +46,8 @@ class Database extends Config {
     }
 
     // Update Single User
-    public function update($id, $fname, $lname, $email, $username, $password) {
-        $sql = 'UPDATE accounts SET fname = :fname, lname = :lname, email = :email, username = :username, password = :password WHERE id = :id';
+    public function update($id, $fname, $lname, $email, $username, $password, $role) {
+        $sql = 'UPDATE accounts SET fname = :fname, lname = :lname, email = :email, username = :username, password = :password, role = :role WHERE id = :id';
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
             'id' => $id,
@@ -54,7 +55,8 @@ class Database extends Config {
             'lname' => $lname,
             'email' => $email,
             'username' => $username,
-            'password' => $password
+            'password' => $password,
+            'role' => $role
         ]);
         return true;
     }
