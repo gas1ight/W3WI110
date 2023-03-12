@@ -20,7 +20,13 @@ if (isset($_POST['submit'])
         if($result == $password){
             session_start();
             $_SESSION['user_id'] = $results['id'];
-            header('location:index.php');
+
+            if ($results['role'] == "admin") {
+
+                header('location:index.php');
+            } else {
+                header('location:home.php');
+            }
         }
         else $ermsg = "credentials incorrect";
     }

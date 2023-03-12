@@ -20,10 +20,16 @@ if(!isset($_SESSION["user_id"])){
 
 <body>
 <h2>
+
     <a href="logout.php">
-        <button class="btn btn-warning">logout</button>
+        <button class="btn btn-primary">logout</button>
     </a>
+    <a href="home.php">
+        <button class="btn btn-primary">home</button>
+    </a>
+
 </h2>
+
 <!-- Add New User Modal Start -->
 <div class="modal fade" tabindex="-1" id="addNewUserModal">
     <div class="modal-dialog modal-dialog-centered">
