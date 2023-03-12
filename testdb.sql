@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2023 at 12:56 AM
+-- Generation Time: Mar 12, 2023 at 02:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -42,8 +42,8 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`id`, `fname`, `lname`, `email`, `username`, `password`, `role`) VALUES
-(14, 'Sebastian', 'Bernhard', 'my@mail', 'keiger', '123', 'admin'),
-(15, 'Josephine', 'Schumann', 'schu@mann', 'josi', '123', 'basic user');
+(14, 'Sebastian', 'Bernhard', 'my@mail', 'keiger', '123', 'basic user'),
+(15, 'Esslam', 'Haffar', 'ess@lam', 'ess', '123', 'admin');
 
 -- --------------------------------------------------------
 
